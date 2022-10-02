@@ -1,0 +1,51 @@
+﻿@model WebApplication1.Models.Phone[]
+@{
+    <style type="text/css">
+        th,td{
+            padding:5px;
+        }
+        td {
+            text-align:center;
+        }
+        .price {
+            color:red;
+        }
+    </style>
+}
+
+@if (Model.Length > 0) {
+ <table>
+ <thead>
+     <tr>
+         <th>Id</th>
+         <th>Модель</th>
+         <th>Операційна система</th>
+         <th>Оперативна пам'ять</th>
+         <th>Вбудована пам'ять</th>
+         <th>Кількість ядер</th>
+         <th>Ємність акумулятора</th>
+         <th>Діагональ екрана</th>
+         <th>Ціна</th>
+    </tr>
+ </thead>
+ <tbody>
+
+ @foreach (WebApplication1.Models.Phone p in Model) {
+ <tr>
+     <td>@p.Id</td>
+     <td>@p.Model</td>
+     <td>@p.OperatingSystem</td>
+     <td>@p.RAM</td>
+     <td>@p.BuiltInMemory</td>
+     <td>@p.NumberOfCores</td>
+     <td>@p.BatteryCapacity</td>
+     <td>@p.ScreenDiagonal</td>
+     <td class="price">@p.Price</td>
+ </tr>
+ }
+ </tbody>
+ </table> } else {
+ <h2>No phones data</h2> 
+ }
+ <br />
+ <a href="/">Головна</a>

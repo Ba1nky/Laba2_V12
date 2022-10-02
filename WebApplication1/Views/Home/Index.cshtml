@@ -1,0 +1,40 @@
+﻿@model WebApplication1.Models.Phone[]
+@{
+    <style type="text/css">
+        th,td{
+            padding:5px;
+        }
+        td {
+            text-align:center;
+        }
+        .price {
+            color:red;
+        }
+    </style>
+}
+
+@if (Model.Length > 0) {
+ <table>
+ <thead>
+     <tr>
+         <th>Id</th>
+         <th>Модель</th>
+         <th>Ціна</th>
+    </tr>
+ </thead>
+ <tbody>
+
+ @foreach (WebApplication1.Models.Phone p in Model) {
+ <tr>
+     <td>@p.Id</td>
+     <td>@p.Model</td>
+     <td class="price">@p.Price</td>
+ </tr>
+ }
+ </tbody>
+ </table> } else {
+ <h2>No phones data</h2> 
+ }
+ <br />
+ <a href="/Characteristics">Характеристики</a>
+
